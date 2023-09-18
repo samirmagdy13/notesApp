@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hive_flutter/adapters.dart';
 import 'package:notes_app/simple_bloc_observer.dart';
-import 'package:notes_app/Features/home/presentation/view/home_view.dart';
 import 'package:notes_app/constant.dart';
+import 'Features/Splash/presentation/view/splash_view.dart';
 import 'Features/home/presentation/view_model/get_note_cubit/get_note_cubit.dart';
 import 'core/models/note_model.dart';
 
@@ -28,7 +28,7 @@ class MyApp extends StatelessWidget {
           brightness: Brightness.dark,
           fontFamily: 'Poppins',
         ),
-        home: const NoteView(),
+        home: const SplashView(),
       ),
     );
   }
