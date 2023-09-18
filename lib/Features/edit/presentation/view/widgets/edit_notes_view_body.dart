@@ -5,6 +5,7 @@ import 'package:notes_app/core/widgets/show_snack_bar.dart';
 import '../../../../../core/models/note_model.dart';
 import 'custom_app_bar.dart';
 import '../../../../../core/widgets/custom_text_field.dart';
+import 'edit_color_item.dart';
 
 class EditNotesViewBody extends StatefulWidget {
   final NoteModel note;
@@ -53,6 +54,8 @@ class _EditNotesViewBodyState extends State<EditNotesViewBody> {
               subTitle = val;
             },
           ),
+          const SizedBox(height: 20),
+          EditColorItem(note: widget.note),
         ],
       ),
     );

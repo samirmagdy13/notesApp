@@ -15,22 +15,18 @@ class NoteItemBuilder extends StatelessWidget {
         builder: (context, state) {
           List<NoteModel> notes =
               BlocProvider.of<GetNoteCubit>(context).notes ?? [];
-          BlocProvider.of<GetNoteCubit>(context).notesFiltered;
+          List<NoteModel> notesFiltered =
+              BlocProvider.of<GetNoteCubit>(context).notesFiltered;
           return ListView.builder(
             padding: EdgeInsets.zero,
             physics: const BouncingScrollPhysics(),
-            itemCount: BlocProvider.of<GetNoteCubit>(context)
-                    .notesFiltered
-                    .isEmpty
-                ? notes.length
-                : BlocProvider.of<GetNoteCubit>(context).notesFiltered.length,
+            itemCount:
+                notesFiltered.isEmpty ? notes.length : notesFiltered.length,
             itemBuilder: (context, index) {
               return Padding(
                 padding: const EdgeInsets.symmetric(vertical: 5),
                 child: NoteItem(
-                  note: BlocProvider.of<GetNoteCubit>(context)
-                          .notesFiltered
-                          .isEmpty
+                  note: notesFiltered.isEmpty
                       ? notes[index]
                       : BlocProvider.of<GetNoteCubit>(context)
                           .notesFiltered[index],

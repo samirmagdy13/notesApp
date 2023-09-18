@@ -13,8 +13,9 @@ class HomeAppBar extends StatefulWidget {
 
 class _HomeAppBarState extends State<HomeAppBar> {
   final FocusNode searchFocusNode = FocusNode();
-  bool searchOpened = false;
   var textController = TextEditingController();
+  bool searchOpened = false;
+
   @override
   void dispose() {
     textController.dispose();
@@ -47,9 +48,6 @@ class _HomeAppBarState extends State<HomeAppBar> {
                       onChanged: (input) {
                         BlocProvider.of<GetNoteCubit>(context)
                             .filterNotes(input: textController.text);
-                      },
-                      onFieldSubmitted: (p0) {
-                        textController.clear();
                       },
                     ),
                   ),

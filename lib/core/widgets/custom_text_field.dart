@@ -11,7 +11,6 @@ class CustomTtextField extends StatelessWidget {
     this.enabledBorderColor,
     this.focusNode,
     this.controller,
-    this.onFieldSubmitted,
   });
 
   final int maxlines;
@@ -21,7 +20,6 @@ class CustomTtextField extends StatelessWidget {
   final InputBorder? enabledBorderColor;
   final FocusNode? focusNode;
   final TextEditingController? controller;
-  final void Function(String)? onFieldSubmitted;
   @override
   Widget build(BuildContext context) {
     return TextFormField(
@@ -30,7 +28,6 @@ class CustomTtextField extends StatelessWidget {
       controller: controller,
       focusNode: focusNode,
       onChanged: onChanged,
-      onFieldSubmitted: onFieldSubmitted,
       onSaved: onSaved,
       validator: (value) {
         if (value?.isEmpty ?? true) {

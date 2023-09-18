@@ -16,7 +16,7 @@ class AddNoteBottomSheet extends StatelessWidget {
         listener: (context, state) {
           if (state is AddNoteSucces) {
             BlocProvider.of<GetNoteCubit>(context).getAllNotes();
-            showSnackBar(context,messege: 'add note success');
+            showSnackBar(context, messege: 'add note success');
             Navigator.pop(context);
           }
           if (state is AddNoteFailure) {
@@ -28,9 +28,10 @@ class AddNoteBottomSheet extends StatelessWidget {
             absorbing: state is AddNoteLoading ? true : false,
             child: Padding(
               padding: EdgeInsets.only(
-                  left: 16,
-                  right: 16,
-                  bottom: MediaQuery.of(context).viewInsets.bottom),
+                left: 16,
+                right: 16,
+                bottom: MediaQuery.of(context).viewInsets.bottom,
+              ),
               child: const SingleChildScrollView(
                 child: AddNoteForm(),
               ),
