@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:notes_app/widgets/add_note_bottom_sheet.dart';
-import 'package:notes_app/widgets/notes_view_body.dart';
-import '../widgets/constant.dart';
-import '../widgets/custom_app_bar.dart';
+import 'package:notes_app/Features/home/presentation/view/widgets/add_note_bottom_sheet.dart';
+import 'package:notes_app/Features/home/presentation/view/widgets/home_app_bar.dart';
+import 'package:notes_app/Features/home/presentation/view/widgets/notes_view_body.dart';
+import '../../../../constant.dart';
 
 class NoteView extends StatelessWidget {
   const NoteView({super.key});
@@ -21,17 +21,9 @@ class NoteView extends StatelessWidget {
         //centerTitle: true,
         elevation: 0,
         backgroundColor: kPrimaryColor,
-        title: const Padding(
-          padding: EdgeInsets.symmetric(horizontal: 10),
-          child: CustomAppBar(
-            text: 'Notes',
-            icon: Icons.search,
-            color: Colors.black,
-          ),
-        ),
+        title: const HomeAppBar(),
       ),
       body: const NotesViewBody(),
-      
       floatingActionButton: FloatingActionButton(
         backgroundColor: kPrimaryColor,
         splashColor: Colors.amberAccent,

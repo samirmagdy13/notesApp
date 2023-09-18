@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hive_flutter/adapters.dart';
-import 'package:notes_app/cubits/noteCubit/note_cubit.dart';
-import 'package:notes_app/models/note_model.dart';
 import 'package:notes_app/simple_bloc_observer.dart';
-import 'package:notes_app/views/notes_view.dart';
-import 'package:notes_app/widgets/constant.dart';
+import 'package:notes_app/Features/home/presentation/view/home_view.dart';
+import 'package:notes_app/constant.dart';
+import 'Features/home/presentation/view_model/get_note_cubit/get_note_cubit.dart';
+import 'core/models/note_model.dart';
 
 void main() async {
   await Hive.initFlutter();
@@ -18,11 +18,10 @@ void main() async {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => NoteCubit(),
+      create: (context) => GetNoteCubit(),
       child: MaterialApp(
         title: 'Flutter Demo',
         theme: ThemeData(

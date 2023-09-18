@@ -1,11 +1,10 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
-import '../cubits/noteCubit/note_cubit.dart';
-import '../models/note_model.dart';
+import 'package:notes_app/Features/home/presentation/view_model/get_note_cubit/get_note_cubit.dart';
+import 'package:notes_app/core/widgets/show_snack_bar.dart';
+import '../../../../../core/models/note_model.dart';
 import 'custom_app_bar.dart';
-import 'custom_text_field.dart';
+import '../../../../../core/widgets/custom_text_field.dart';
 
 class EditNotesViewBody extends StatefulWidget {
   final NoteModel note;
@@ -27,18 +26,16 @@ class _EditNotesViewBodyState extends State<EditNotesViewBody> {
       padding: const EdgeInsets.symmetric(horizontal: 20),
       child: Column(
         children: [
-          const SizedBox(height: 50),
+          const SizedBox(height: 20),
           CustomAppBar(
-            text: 'Edit Note',
-            icon: Icons.check,
-            color: Colors.white,
             onPressed: () {
               widget.note.title = title ?? widget.note.title;
               widget.note.subTitle = subTitle ?? widget.note.subTitle;
               widget.note.save();
-              BlocProvider.of<NoteCubit>(context).getAllNotes();
+              BlocProvider.of<GetNoteCubit>(context).getAllNotes();
 
               Navigator.pop(context);
+              showSnackBar(context, messege: 'edit note success');
             },
           ),
           const SizedBox(height: 50),

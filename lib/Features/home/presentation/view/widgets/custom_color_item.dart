@@ -1,7 +1,6 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:notes_app/cubits/addNoteCubit/add_note_cubit.dart';
+import '../../view_model/add_note_cubit/add_note_cubit.dart';
 
 class ColorBuilderItem extends StatefulWidget {
   const ColorBuilderItem({super.key});
@@ -38,7 +37,8 @@ class _ColorBuilderItemState extends State<ColorBuilderItem> {
             child: GestureDetector(
               onTap: () {
                 curentIndex = index;
-                BlocProvider.of<AddNoteCubit>(context).color = colors[index].value;
+                BlocProvider.of<AddNoteCubit>(context).color =
+                    colors[index].value;
                 setState(() {});
               },
               child: ColorItem(

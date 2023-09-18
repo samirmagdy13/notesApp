@@ -2,8 +2,10 @@ import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/adapters.dart';
 import 'package:intl/intl.dart';
-import 'package:notes_app/models/note_model.dart';
-import 'package:notes_app/widgets/constant.dart';
+import 'package:notes_app/constant.dart';
+
+import '../../../../../core/models/note_model.dart';
+
 
 part 'add_note_state.dart';
 

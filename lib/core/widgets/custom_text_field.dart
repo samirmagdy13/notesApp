@@ -1,21 +1,30 @@
 import 'package:flutter/material.dart';
-import 'package:notes_app/widgets/constant.dart';
+import 'package:notes_app/constant.dart';
 
 class CustomTtextField extends StatelessWidget {
-  const CustomTtextField(
-      {super.key,
-      required this.hintText,
-      this.maxlines = 1,
-      this.onSaved,
-      this.onChanged});
+  const CustomTtextField({
+    super.key,
+    required this.hintText,
+    this.maxlines = 1,
+    this.onSaved,
+    this.onChanged,
+    this.enabledBorderColor,
+    this.focusNode,
+  });
 
   final int maxlines;
   final String hintText;
   final Function(String?)? onSaved;
   final void Function(String)? onChanged;
+  final InputBorder? enabledBorderColor;
+  final FocusNode? focusNode;
+  
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      //autofocus: true,
+      textInputAction: TextInputAction.search,
+      focusNode: focusNode,
       onChanged: onChanged,
       onSaved: onSaved,
       validator: (value) {
@@ -28,8 +37,8 @@ class CustomTtextField extends StatelessWidget {
       maxLines: maxlines,
       decoration: InputDecoration(
         hintText: hintText,
-        border: outlineInputBorder(),
-        enabledBorder: outlineInputBorder(),
+        border: enabledBorderColor ?? outlineInputBorder(),
+        enabledBorder: enabledBorderColor ?? outlineInputBorder(),
         focusedBorder: outlineInputBorder(kPrimaryColor),
       ),
     );

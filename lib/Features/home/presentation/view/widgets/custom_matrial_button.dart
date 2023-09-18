@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:notes_app/widgets/constant.dart';
+import 'package:notes_app/constant.dart';
 
 class CustomMatrialButton extends StatelessWidget {
   final String text;
