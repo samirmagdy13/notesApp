@@ -15,4 +15,19 @@ class GetNoteCubit extends Cubit<GetNoteState> {
     notes = notesbox.values.toList();
     emit(GetNoteSucces());
   }
+
+  List<NoteModel> notesFiltered = [];
+  void filterNotes({required String input}) {
+    notesFiltered = notes!
+        .where((element) => element.title
+            .toString()
+            .toLowerCase()
+            .startsWith(input.toLowerCase()))
+        .toList();
+    emit(GetNoteSucces());
+  }
+
+  void cloose() {
+    emit(GetNoteSucces());
+  }
 }

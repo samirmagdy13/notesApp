@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:notes_app/Features/home/presentation/view_model/get_note_cubit/get_note_cubit.dart';
 import '../../../../../core/widgets/custom_icon.dart';
 import '../../../../../core/widgets/custom_text_field.dart';
+import '../../view_model/get_note_cubit/get_note_cubit.dart';
 
 class HomeAppBar extends StatefulWidget {
   const HomeAppBar({Key? key}) : super(key: key);
@@ -14,6 +14,12 @@ class HomeAppBar extends StatefulWidget {
 class _HomeAppBarState extends State<HomeAppBar> {
   final FocusNode searchFocusNode = FocusNode();
   bool searchOpened = false;
+  var textController = TextEditingController();
+  @override
+  void dispose() {
+    textController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -34,9 +40,17 @@ class _HomeAppBarState extends State<HomeAppBar> {
                   child: Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 5),
                     child: CustomTtextField(
-                      hintText: 'Search',
+                      hintText: 'Search by tittle',
                       focusNode: searchFocusNode,
                       enabledBorderColor: InputBorder.none,
+                      controller: textController,
+                      onChanged: (input) {
+                        BlocProvider.of<GetNoteCubit>(context)
+                            .filterNotes(input: textController.text);
+                      },
+                      onFieldSubmitted: (p0) {
+                        textController.clear();
+                      },
                     ),
                   ),
                 ),
@@ -47,7 +61,6 @@ class _HomeAppBarState extends State<HomeAppBar> {
               setState(() {
                 searchOpened = !searchOpened;
               });
-
               if (searchOpened) {
                 // Delay the focus request slightly to ensure visibility
                 Future.delayed(const Duration(milliseconds: 50), () {
@@ -55,6 +68,9 @@ class _HomeAppBarState extends State<HomeAppBar> {
                 });
               } else {
                 searchFocusNode.unfocus();
+                textController.clear();
+                BlocProvider.of<GetNoteCubit>(context).notesFiltered.clear();
+                BlocProvider.of<GetNoteCubit>(context).cloose();
               }
             },
           ),
@@ -63,6 +79,3 @@ class _HomeAppBarState extends State<HomeAppBar> {
     );
   }
 }
-      //         var notes =BlocProvider.of<GetNoteCubit>(context).notes;
-      // var notesFiltered = notes!.where((element) => element.title.toString().toLowerCase().startsWith(input.toLowerCase())).toList();
-              
