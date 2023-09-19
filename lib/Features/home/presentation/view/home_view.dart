@@ -4,8 +4,8 @@ import 'package:notes_app/Features/home/presentation/view/widgets/home_app_bar.d
 import 'package:notes_app/Features/home/presentation/view/widgets/notes_view_body.dart';
 import '../../../../constant.dart';
 
-class NoteView extends StatelessWidget {
-  const NoteView({super.key});
+class HomeView extends StatelessWidget {
+  const HomeView({super.key});
 
   @override
   Widget build(BuildContext context) {
