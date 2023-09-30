@@ -1,4 +1,3 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -69,35 +68,6 @@ class NoteItem extends StatelessWidget {
             ),
           ],
         ),
-        // Column(
-        //   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        //   crossAxisAlignment: CrossAxisAlignment.start,
-        //   children: [
-        //     const Text(
-        //       'Flutter Tipes',
-        //       style: TextStyle(fontSize: 23, fontWeight: FontWeight.bold),
-        //     ),
-        //     Align(
-        //       alignment: Alignment.centerRight,
-        //       child: IconButton(
-        //         onPressed: () {},
-        //         icon: const Icon(
-        //           Icons.delete,
-        //           size: 30,
-        //         ),
-        //       ),
-        //     ),
-        //     const Text(
-        //       'data',
-        //       style: TextStyle(fontSize: 17),
-        //     ),
-
-        //     const Align(
-        //       alignment: Alignment.centerRight,
-        //       child: Text('2023'),
-        //     ),
-        //   ],
-        // ),
       ),
     );
   }

@@ -19,6 +19,7 @@ class _HomeAppBarState extends State<HomeAppBar> {
   @override
   void dispose() {
     textController.dispose();
+    searchFocusNode.dispose();
     super.dispose();
   }
 

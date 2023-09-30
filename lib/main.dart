@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => GetNoteCubit(),
+      create: (context) => GetNoteCubit()..getAllNotes(),
       child: MaterialApp(
         title: 'Flutter Demo',
         theme: ThemeData(
