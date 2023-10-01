@@ -26,8 +26,4 @@ class GetNoteCubit extends Cubit<GetNoteState> {
         .toList();
     emit(GetNoteSucces());
   }
-
-  void cloose() {
-    emit(GetNoteSucces());
-  }
 }

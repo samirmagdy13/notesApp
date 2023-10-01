@@ -62,14 +62,13 @@ class _HomeAppBarState extends State<HomeAppBar> {
               });
               if (searchOpened) {
                 // Delay the focus request slightly to ensure visibility
-                Future.delayed(const Duration(milliseconds: 50), () {
+                Future.delayed(const Duration(milliseconds: 20), () {
                   FocusScope.of(context).requestFocus(searchFocusNode);
                 });
               } else {
                 searchFocusNode.unfocus();
                 textController.clear();
-                BlocProvider.of<GetNoteCubit>(context).notesFiltered.clear();
-                BlocProvider.of<GetNoteCubit>(context).cloose();
+                BlocProvider.of<GetNoteCubit>(context).filterNotes(input: '');
               }
             },
           ),
