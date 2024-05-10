@@ -4,14 +4,14 @@ import '../../../../../core/widgets/custom_icon.dart';
 import '../../../../../core/widgets/custom_text_field.dart';
 import '../../view_model/get_note_cubit/get_note_cubit.dart';
 
-class HomeAppBar extends StatefulWidget {
-  const HomeAppBar({Key? key}) : super(key: key);
+class HomeAppBarTittle extends StatefulWidget {
+  const HomeAppBarTittle({Key? key}) : super(key: key);
 
   @override
-  State<HomeAppBar> createState() => _HomeAppBarState();
+  State<HomeAppBarTittle> createState() => _HomeAppBarTittleState();
 }
 
-class _HomeAppBarState extends State<HomeAppBar> {
+class _HomeAppBarTittleState extends State<HomeAppBarTittle> {
   final FocusNode searchFocusNode = FocusNode();
   var textController = TextEditingController();
   bool searchOpened = false;
@@ -68,7 +68,9 @@ class _HomeAppBarState extends State<HomeAppBar> {
               } else {
                 searchFocusNode.unfocus();
                 textController.clear();
-                BlocProvider.of<GetNoteCubit>(context).filterNotes(input: '');
+                BlocProvider.of<GetNoteCubit>(context).notesFiltered.clear();
+
+                // BlocProvider.of<GetNoteCubit>(context).filterNotes(input: '');
               }
             },
           ),

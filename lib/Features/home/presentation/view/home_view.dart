@@ -21,7 +21,7 @@ class HomeView extends StatelessWidget {
         //centerTitle: true,
         elevation: 0,
         backgroundColor: kPrimaryColor,
-        title: const HomeAppBar(),
+        title: const HomeAppBarTittle(),
       ),
       body: const NotesViewBody(),
       floatingActionButton: FloatingActionButton(
@@ -31,15 +31,12 @@ class HomeView extends StatelessWidget {
           showModalBottomSheet(
             isScrollControlled: true,
             context: context,
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(16),
-            ),
+            shape:
+                RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
             builder: (context) => const AddNoteBottomSheet(),
           );
         },
-        child: const Icon(
-          Icons.add,
-        ),
+        child: const Icon(Icons.add),
       ),
     );
   }
